@@ -100,3 +100,21 @@ x = 6.72
 y = round(x)
 print(y) # resultado 7
 
+# Ejercicios:
+# Redondea el resultado de la división 10/3 a un número con 2 decimales, y muestra en pantalla el valor redondeado
+resultado = round(10/3,2)
+print(resultado)
+
+#Redondea el número 10.676767 al entero más próximo, y muestra en pantalla el resultado.
+valor = 10.676767
+print(round(valor))
+
+valor = 10.676767
+y = round(valor)
+print(y)
+
+# Calcula la raíz cuadrada de 5, y muestra en pantalla el resultado redondeado con 4 posiciones decimales.
+print(f"{round(5**0.5,4)}")
+
+
+
