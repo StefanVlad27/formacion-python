@@ -2,7 +2,7 @@
 # index(): string para conocer posicion de letras.
 # format[]: string para dar formato a los strings.
 # upper(): pasar a mayúsculas
-# lower(): pasulas
+# lower(): pasar a minusculas
 # split(): separar en partes (lista)
 # join(): unir items usando separador
 # find(): encontrar un substring
@@ -261,3 +261,137 @@ mi_dic = {'nombre':'Karen','apellido':'Jurgens','edad':35,'ocupacion':'Periodist
 # Crea una función print que devuelva del segundo item de la lista llamada points2, dentro del siguiente diccionario.
 mi_dict = {"valores_1":{"v1":3,"v2":6},"puntos":{"points1":9,"points2":[10,300,15]}}
 print(mi_dict["puntos"]["points2"][1])
+
+# Actualiza la información de nuestro diccionario llamado mi_dic  (reasignando nuevos valores a las claves según corresponda),
+# y agrega una nueva clave llamada "pais" (sin tilde). Los nuevos datos son:
+#     nombre: Karen
+#     apellido: Jurgens
+#     edad: 36
+#     ocupacion: Editora
+#     pais: Colombia
+
+
+
+# TUPLES: ("sal", 1.5, -3) -> lista de objetos, da igual el tipo. va entre paréntesis () pero a diferencia de la lista, el orden de los elementos NO varía
+# Ocupan menos espacio de memoria y son inmutables.
+
+t = (1,2,3,4)
+print(t)
+
+print(t[0]) # se pueden filtrar por indices
+
+t = (1,2,("a","b","c")) # tuple dentro de un tuple
+print(t[2][1]) # busca dentro del tuple la posicion 1
+
+t = (1,2,3)
+x,y,z = t # se pueden asignar variables al contenido del tupple
+print(x,y,z)
+
+# MÉTODO COUNT: cuenta cuantas veces aparece el número 1 dentro del tuple
+t = (1,2,3,1)
+y = t.count(1) # cuenta cuantas veces aparece el número 1 dentro del tuple
+print(y)
+
+
+# MÉTODO INDEX: te indica en qué indice se encuentra un valor
+t = (1,2,3,1)
+y = t.index(2)
+print(y)
+
+
+# Utiliza un método de tuplas para contar la cantidad de veces que aparece el valor 2 en la siguiente tupla, y muestra el resultado (integer) en pantalla:
+mi_tupla = (1, 2, 3, 2, 3, 1, 3, 2, 3, 3, 3, 1, 3, 2, 2, 1, 3, 2)
+print(mi_tupla.count(2))
+
+
+# Convierte a lista la siguiente tupla, y almacénala en una variable llamada mi_lista.
+mi_tupla = (1, 2, 3, 2, 3, 1, 3, 2)
+mi_lista = list(mi_tupla)
+
+
+# Extrae los elementos de la siguiente tupla en cuatro variables: a, b, c, d
+mi_tupla = (1, 2, 3, 4)
+a,b,c,d = mi_tupla
+
+
+# SETS: ista de objetos ÚNICOS, no se pueden repetir. Van entre {}
+set1 = set((1,2,3,4,5)) # se puede definir con set() pero dentro, los datos tienen que ir entre paréntesis otra vez set((datos))
+print(mi_set)
+
+set2 = {"a","b","c","d"} # tambien se puede definir entre llaves {} como el diccionario
+print(set2)
+
+# MÉTODO UNION: Unir sets.
+s1 = {1,2,3}
+s2 = {3,4,5}
+s3 = s1.union(s2)
+print(s3)
+
+# MÉTODO ADD: añadir valores al set.
+s1 = {1,2,3}
+s1.add(4)
+print(s1)
+
+# MÉTODO REMOVE: eliminar valores del set
+s1 = {1,3,2}
+s1.remove(2) # ELIMINA EL NUMERO 2, NO EL VALOR 2
+print(s1)
+
+# MÉTODO DISCARD: igual que el remove, pero si no existe, no da error.
+s1 = {1,3,2}
+s1.discard(8) # ELIMINA EL NUMERO 2, NO EL VALOR 2
+print(s1)
+
+# MÉTODO POP: ELIMINA UN NÚMERO ALEATORIO DEL SET.
+s1 = {1,3,2}
+s1.pop()
+print(s1)
+
+# MÉTODO CLEAR: VACÍA EL SET ENTERO
+s1 = {1,3,2}
+s1.clear()
+print(s1)
+
+
+# EJERCICIOS:
+# Une los siguientes sets en uno solo, llamado mi_set_3:
+mi_set_1 = {1, 2, "tres", "cuatro"}
+mi_set_2 = {"tres", 4, 5}
+mi_set_3 = mi_set_1.union(mi_set_2)
+
+# Elimina un elemento al azar del siguiente set, utilizando métodos de sets.
+sorteo = {"Camila", "Margarita", "Axel", "Jorge", "Miguel", "Mónica"}
+sorteo.pop()
+
+# Agrega el nombre Damián al siguiente set, utilizando métodos de sets:
+sorteo = {"Camila", "Margarita", "Axel", "Jorge", "Miguel", "Mónica"}
+sorteo.add("Damián")
+
+
+
+# BOOLEANOS: True, false -> solo puede tener dos valores. Se usa para comprobar si las condiciones se cumplen
+var1 = True
+var2 = False
+
+numero = 5 > 2+4 # esto es una operación booleana debido al signo de comparacion
+print(type(numero))
+print(numero)
+
+lista = [1,2,3,4]
+control = 5 in lista
+print(type(control))
+print(control)
+
+
+# EJERCICIOS:
+# Realiza una comparación que arroje como resultado un booleano y almacena el resultado (True/False) en una variable llamada prueba
+prueba  = 2 > 5
+
+# Verifica si 17834/34 es mayor que 87*56 y muestra el resultado (booleano) en pantalla utilizando print()
+a = 17834/34 > 87*56
+print(a)
+
+# Verifica si la raíz cuadrada de 25 es igual a 5 y muestra el resultado (booleano) en pantalla utilizando print()
+a = 25**0.5 == 5
+print(a)
+
