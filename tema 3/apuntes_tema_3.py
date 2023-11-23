@@ -382,6 +382,14 @@ control = 5 in lista
 print(type(control))
 print(control)
 
+# OPERADORES LÓGICOS:
+# Mayor >
+# Menor <
+# Mayor o igual >=
+# Menor o igual <=
+# Igual ==
+# Diferente !=
+
 
 # EJERCICIOS:
 # Realiza una comparación que arroje como resultado un booleano y almacena el resultado (True/False) en una variable llamada prueba
