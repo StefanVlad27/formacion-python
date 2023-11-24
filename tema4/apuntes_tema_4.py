@@ -376,3 +376,137 @@ for numero in range(10,61,10):
 # TAMBIEN PUEDES CREAR LISTAS MAS LARGAS
 lista = list(range(1,101))
 print(lista)
+
+# EJERCICIOS
+# Crea una lista formada por todos los números desde el 2500 al 2585 (inclusive). Almacena dicha lista en la variable mi_lista.
+mi_lista = list(range(2500,2586))
+
+# Utilizando la función range(), crea en una única linea de código una lista formada por todos
+# los números múltiplos de 3 desde el 3 al 300 (inclusive). Almacena dicha lista en la variable mi_lista.
+mi_lista = list(range(3,301,3))
+
+# Utiliza la función range() y un loop para sumar los cuadrados de todos los números del 1 al 15 (inclusive).
+# Almacena el resultado en una variable llamada suma_cuadrados
+numeros = list(range(1,16))
+suma_cuadrados = 0
+for numero in numeros:
+    suma_cuadrados = suma_cuadrados + numero**2
+print(suma_cuadrados)
+
+# ENUMERADOR: para acceder a los índices de una colección
+
+# PARA VER EL ÍNDICE DE LAS POSICIONES DE UNA LISTA SIN USAR ENUMERADOR
+lista = ['a','b','c']
+indice = 0
+
+for item in lista:
+    print(indice,item)
+    indice += 1
+
+# USANDO ENUMERADOR
+lista = ['a','b','c']
+
+for indice,item in enumerate(lista):
+    print(indice,item)
+
+# EJERCICIOS
+
+# Imprime en pantalla frases como la siguiente:
+# '{nombre} se encuentra en el índice {indice}'
+# Donde nombre debe ser cada uno de los nombres de la lista a continuación, y el índice, obtenido mediante enumerate().
+lista_nombres = ["Marcos", "Laura", "Mónica", "Javier", "Celina", "Marta", "Darío", "Emiliano", "Melisa"]
+
+for indice,nombre in enumerate(lista_nombres):
+    print(f'{nombre} se encuentra en el índice {indice}')
+
+# Crea una lista formada por las tuplas (indice, elemento), formadas a partir de obtener mediante enumerate() los índices
+# de cada caracter del string "Python".
+# Llama a la lista obtenida con el nombre de variable lista_indices .
+lista_indices = list(enumerate("Python"))
+
+
+# Imprime en pantalla únicamente los índices de aquellos nombres de la lista a continuación, que empiecen con M
+lista_nombres = ["Marcos", "Laura", "Mónica", "Javier", "Celina", "Marta", "Darío", "Emiliano", "Melisa"]
+
+for indice,nombre in enumerate(lista_nombres):
+    if (nombre.startswith('M')):
+        print(indice)
+
+
+# FUNCIÓN ZIP: combinar dos o más listas entrelazando sus elementos en forma de tabla
+
+nombres = ["Marcos", "Laura", "Mónica"]
+num_personas = len(nombres)
+edades = list(range(10, 10 + 3 * num_personas, 3))
+ciudades = ["Zaragoza","Barcelona","Lugo"]
+
+
+# SI LO EJECUTAS ASÍ SERÁ TIPO ZIP
+combinados = zip(nombres,edades,ciudades)
+print(combinados) # <zip object at 0x000002427B1838C0>
+
+# PARA PODER VERLO HAY QUE METERLO EN UNA LISTA
+final = list(combinados)
+print(final)
+
+for nombre,edad,ciudad in combinados:
+    print(f"{nombre} tiene {edad} años y vive en {ciudad}")
+
+
+
+# EJERCICIOS
+
+# Muestra en pantalla frases como la del siguiente ejemplo:
+# La capital de Alemania es Berlín
+# Utiliza la función zip, loops, y las siguientes listas de países y capitales para resolverlo rápida y eficientemente.
+capitales = ["Berlín", "Tokio", "París", "Helsinki", "Ottawa", "Canberra"]
+paises = ["Alemania", "Japón", "Francia", "Finlandia", "Canadá", "Australia"]
+
+combinacion = zip(capitales,paises)
+
+for capitales,paises in combinacion:
+    print(f"La capital de {paises} es {capitales}")
+
+#Crea un objeto zip formado a partir de listas, de un conjunto de marcas y
+# productos que tú prefieras,dentro de la variable mi_zip.
+marcas = ["Adidas","Nike","Asos"]
+productos = ["Sudadera","Chaqueta","Zapatillas"]
+mi_zip = zip(marcas,productos)
+
+
+# Crea el zip con las traducciones los números del 1 al 5 en español, portugués e inglés
+# (en el mismo orden), y convierte el objeto generado en una lista almacenada en la variable numeros:
+numeros = list(zip(
+    ('uno', 'dos', 'tres', 'cuatro', 'cinco'),
+    ('um', 'dois', 'três', 'quatro', 'cinco'),
+    ('one', 'two', 'three', 'four', 'five')
+))
+
+print(numeros)
+
+
+# FUNCIONES MIN Y MAX: sirven para detectar los valores mas bajos y mas altos
+
+menor = min(67,25,12,42,94)
+print(menor)
+
+mayor = max(67,25,12,42,94)
+print(mayor)
+
+
+lista = [67,25,12,42,94]
+print(max(lista))
+print(f"El menor es {min(lista)} y el mayor es {max(lista)}")
+
+
+# TAMBIÉN SIRVE CON STRINGS
+nombres = ['Juan', 'Stefan', 'Marcos', 'Manuel']
+print(min(nombres)) # IMPRIME EN ORDEN ALFABETICO
+
+nombre = "Stefanz"
+
+# BUSCA PRIMERO MAYUSCULAS LUEGO MINUSCULAS
+print(min(nombre)) # S
+print(min(nombre.lower())) # a
+
+dic = {}
