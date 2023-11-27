@@ -257,7 +257,7 @@ for nombre in alumnos_clase:
     print("Hola " + nombre)
 
 # Dada la siguiente lista de números, realiza la suma de todos los números utilizando
-# oops For y almacena el resultado de la suma en una variable llamada suma_numeros
+# loops For y almacena el resultado de la suma en una variable llamada suma_numeros
 lista_numeros = [1,5,8,7,6,8,2,5,2,6,4,8,5,9,8,3,5,4,2,5,6,4]
 suma_numeros = 0
 for numero in lista_numeros:
@@ -509,4 +509,131 @@ nombre = "Stefanz"
 print(min(nombre)) # S
 print(min(nombre.lower())) # a
 
-dic = {}
+dic = {'C1':45,'C2':11}
+print(min(dic)) # C1. Muestra el valor más pequeño de la parte "clave" del diccionario
+
+print(min(dic.values())) # 11. Muestra el valor más pequeño de la parte "valor" del diccionario
+
+
+# EJERCICIOS
+
+# Obtén el valor máximo entre los valores de la siguiente lista, y almacénalo en una variable llamada valor_maximo:
+lista_numeros = [44542247/2, 21310/5, 2134747*33, 44556475, 121676, 6654067, 353254, 123134, 55**12, 611**5]
+valor_maximo = max(lista_numeros)
+
+# Calcula la diferencia entre el valor máximo y el mínimo en la siguiente lista de números, y almacénalo en una variable llamada rango
+lista_numeros = [44542247, 21310, 2134747, 44556475, 121676, 6654067, 353254, 123134, 552512, 611665]
+
+rango = (max(lista_numeros)) - (min(lista_numeros))
+print(rango)
+
+# Utilizando max(), min() y métodos de diccionarios, obtén el mínimo valor a partir del siguiente diccionario.
+# Almacena dicho valor en una variable llamada edad_minima.
+# También, obtén el nombre que se ubica último en orden alfabético, y almacénalo en una variable llamada ultimo_nombre.
+diccionario_edades = {"Carlos":55, "María":42, "Mabel":78, "José":44, "Lucas":24, "Rocío":35, "Sebastián":19, "Catalina":2,"Darío":49}
+edad_minima = min(diccionario_edades.values())
+ultimo_nombre = max(diccionario_edades)
+
+
+
+# FUNCIÓN RANDOM: Generación de números aleatorios.
+
+# randint(): NÚMERO INTEGER aleatorio dentro del rango que le indiquemos
+from random import randint
+aleatorio = randint(1,50) # GENERA UN NÚMERO RANDOM ENTRE EL 1 Y EL 50
+print(aleatorio)
+
+# uniform(): NÚMERO DECIMAL aleatorio dentro del rango que le indiquemos
+from random import uniform
+aleatorio = uniform(1,5) # te devuelve con muchos decimales
+aleatorio = round(uniform(1,5),2) # te devuelve solamente 2 decimales
+print(aleatorio)
+
+# random(): imprime un número decimal aleatorio entre 0 y 1.
+from random import random
+aleatorio = random()
+print(round(aleatorio),2)
+
+# choice(): imprime un objeto random de la lista que le pasemos
+from random import choice
+colores = ['verde', 'amarillo', 'rojo', 'azul']
+aleatorio = choice(colores)
+print(aleatorio)
+
+# shuffle(): mezcla los valores de la lista que le pasemos de manera aleatoria. sirve con números, letras y decimales
+from random import shuffle
+
+# CON NÚMEROS
+numeros = list(range(5,55,5))
+shuffle(numeros)
+print(numeros)
+
+# CON LETRAS O PALABRAS
+palabras = ['Primero', 'Segundo', 'Tercero']
+shuffle(palabras)
+print(palabras)
+
+
+# EJERCICIOS:
+
+# Implementa la función randint() de la librería random que te permita obtener un número entero del 1 al 10,
+# y almacena dicho valor en una variable llamada aleatorio
+from random import randint
+aleatorio = randint(1,10)
+print(aleatorio)
+
+# Implementa la función random() de la librería random que te permita obtener un número decimal entre 0 y 1, y
+# almacena dicho valor en una variable llamada aleatorio
+from random import random
+aleatorio = random()
+print(aleatorio)
+
+# Utiliza el método choice() de la librería random para obtener un elemento al azar de la lista de nombres a continuación,
+# y almacena el nombre escogido en una variable llamada sorteo.
+from random import choice
+nombres = ["Carlos", "Julia", "Nicole", "Laura", "Mailen"]
+sorteo = choice(nombres)
+
+
+
+# COMPRENSIÓN DE LISTAS: manera dinámica de hacer listas
+palabra = 'python'
+lista = [letra for letra in palabra]
+print(lista)
+
+
+# EJERCICIOS:
+# Crea una lista valores_cuadrado formada por los números de la lista valores, elevados al cuadrado.
+valores = [1, 2, 3, 4, 5, 6, 9.5]
+valores_cuadrado = [num * num for num in valores]
+print(valores_cuadrado)
+
+# Crea una lista valores_pares formada por los números de la lista valores que (¡adivinaste!) sean pares.
+valores = [1, 2, 3, 4, 5, 6, 9.5]
+valores_pares = [valores for valores in valores if valores%2 == 0]
+print(valores_pares)
+
+# Para la siguiente lista de temperaturas en grados Fahrenheit, expresa estos mismos valores en una nueva lista de valores
+# de temperatura en grados Celsius. La conversión entre tipo de unidades es la siguiente:°C = (°F - 32) * (5/9) o expresado de otro modo:
+# (grados_fahrenheit-32)*(5/9). La lista de temperaturas es la siguiente: temperatura_fahrenheit = [32, 212, 275]
+# Almacena esta nueva lista en una variable llamada grados_celsius
+temperatura_fahrenheit = [32, 212, 275]
+grados_celsius = [(num-32)*(5/9) for num in temperatura_fahrenheit]
+print(grados_celsius)
+
+
+# FUNCIÓN MATCH: se utiliza para verificar si una cadena al principio coincide con una expresión regular.
+cliente = {'nombre':'Stefan','edad':22, 'puesto':'informatico'}
+
+pelicula = {'titulo':'matrix',
+            'ficha_tecnica':
+                {'protagonista':'Stefan Vlad', 'director': 'nacho'}}
+
+elementos = [cliente, película, 'libros']
+
+for e in elementos:
+    match e:
+        case {'nombre': nombre,
+              'edad': edad,
+              'puesto': puesto}:
+            print("Cliente")
