@@ -142,7 +142,7 @@ estas
 """
 print("estas" in n1) # te dice si el caracter está dentro del string
 
-# LENGHT
+# LENGHT: te dice el numero de caracteres
 n1 = "SteLSFKJÑLSJCÑAL"
 print(len(n1))
 

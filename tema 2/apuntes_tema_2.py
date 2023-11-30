@@ -5,7 +5,7 @@
 # floating(float) 1.7, 923.14, -934 -> números decimales y/o negativos
 # listas(lst) ["sal", 1.5, -3] -> lista de objetos, da igual el tipo. va entre corchetes [] . El orden de los elementos puede variar.
 # diccionarios(dic) {'color':'rojo','arte':'cine'} -> pares de palabras agrupados, la primera se denomina clave y la segunda valor. Van entre {}
-# tuples(tuple) ["sal", 1.5, -3] -> lista de objetos, da igual el tipo. va entre paréntesis () pero a diferencia de la lista, el orden de los elementos NO varía
+# tuples(tuple) [("sal", 1.5), ("temperatura", -3)] -> lista de objetos, da igual el tipo. va entre paréntesis () pero a diferencia de la lista, el orden de los elementos NO varía
 # sets(set) {'a','b','c'} -> lista de objetos ÚNICOS, no se pueden repetir. Van entre {}
 # booleanos(bool) True, false -> solo puede tener dos valores. Se usa para comprobar si las condiciones se cumplen
 
