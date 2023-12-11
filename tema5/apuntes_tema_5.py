@@ -314,8 +314,206 @@ def reducir_lista(lista):
             duplicados.append(n)
         else:
             pass
+    duplicados.sort()
+    duplicados.pop()
 
-        print(duplicados)
+    return duplicados
 
-reducir_lista(lista_numeros)
+def promedio(resultado):
+    div=len(resultado)
+    suma=0
 
+    for n in resultado:
+        suma = suma+n
+    media = round(suma/div,1)
+
+    return media
+
+# Crea una función (llamada lanzar_moneda) que devuelva el resultado de lanzar una moneda (al azar). Dicha función debe
+# poder devolver los resultados "Cara" o "Cruz", y no debe recibir argumentos para funcionar.
+# Crea una segunda función (llamada probar_suerte), que tome dos argumentos: el primero, debe ser el resultado del lanzamiento
+# de la moneda. El segundo argumento, será una lista de números cualquiera (debes crear una lista con valores y llamarla lista_numeros).
+# Si se le proporciona una "Cara", debe mostrar el mensaje al usuario: "La lista se autodestruirá", y eliminarla
+# (devolverla como lista vacía []).Si se le proporciona una "Cruz", debe imprimir en pantalla: "La lista fue salvada" y devolver la lista intacta.
+# Pistas: utiliza el método choice de la biblioteca random para elegir un elemento al azar de una secuencia.
+
+from random import choice
+
+lista_numeros = [1, 2, 3, 4]
+
+def lanzar_moneda():
+    moneda = choice(['Cara', 'Cruz'])
+    return moneda
+
+def probar_suerte(moneda, lista):
+    if moneda == 'Cara':
+        lista.clear()
+        print(f"La lista se autodestruirá:{lista}")
+        return lista
+    else:
+        print(f"La lista fue salvada {lista}")
+        return lista
+
+lanzar = lanzar_moneda()
+print(probar_suerte(lanzar, lista_numeros))
+
+# ARGUMERNTOS INDEFINIDOS: *args y **kwargs: se pueden definir funciones las cuales los numeros de los argumentos es variable.
+
+# *args
+
+# SUMA TODOS LOS NUMEROS, SIN DEFINIR LA CANTIDAD A PASAR:
+def suma(*args):
+    total = 0
+
+    for n in args:
+        total += n
+    return total
+
+print(suma(5,5,6,342,4,56))
+
+# LO MISMO
+def suma(*args):
+
+    return sum(args)
+
+print(suma(5,5,6,342,4,56))
+
+# EJERCICIOS
+
+# Crea una función llamada suma_cuadrados que tome una cantidad indeterminada de argumentos numéricos, y que retorne la
+# suma de sus valores al cuadrado.
+
+def suma_cuadrados(*args):
+    total = 0
+
+    for n in args:
+        n = n**2
+        total += n
+    return total
+
+print(suma_cuadrados(2,3,5,-7))
+
+# Crea una función llamada suma_absolutos, que tome un conjunto de argumentos de cualquier extensión, y retorne la suma de sus valores absolutos (es decir,
+# que tome los valores sin signo y los sume, o lo que es lo mismo, los considere a todos -negativos y positivos- como positivos).
+def suma_absolutos(*args):
+    total = 0
+
+    for n in args:
+        total += abs(n)
+    return total
+
+print(suma_absolutos(2,3,5,-7))
+
+
+# Crea una función llamada numeros_persona que reciba, como primer argumento, un nombre, y a continuación, una cantidad indefinida de números.
+# La función debe devolver el siguiente mensaje:
+# "{nombre}, la suma de tus números es {suma_numeros}"
+def numeros_persona(nombre, *args):
+    suma_numeros = 0
+
+    for n in args:
+        suma_numeros += n
+
+    return(f"{nombre}, la suma de tus números es {suma_numeros}")
+
+print(numeros_persona("Stefan", 2, 3, 5, -7))
+
+
+# **kwargs
+def suma(**kwargs):
+    for clave,valor in kwargs.items():
+        print(f"{clave} = {valor}")
+
+suma(x=3,y=5,z=3)
+
+def suma(**kwargs):
+
+    total = 0
+
+    for clave,valor in kwargs.items():
+        print(f"{clave} = {valor}")
+        total += valor
+
+    return total
+
+print(suma(x=3,y=5,z=3))
+
+def prueba(num1, num2, *args, **kwargs):
+
+    print(f"El primer valor es {num1}")
+    print(f"El segundo valor es {num2}")
+
+    for arg in args:
+        print(f"arg = {arg}")
+
+    for clave,valor in kwargs.items():
+        print(f"{clave} = {valor}")
+
+
+prueba(15,50,256,55512,55632,54412,x="uno", y="dos", z="tres")
+
+
+
+# EJERCICIOS
+
+# Crea una función llamada cantidad_atributos que cuente la cantidad de parémetros que se entregan,
+# y devuelva esa cantidad como resultado.
+
+def cantidad_atributos(**kwargs):
+    cantidad = 0
+
+    for clave, valor in kwargs.items():
+        cantidad += 1
+
+    return cantidad
+
+
+print(cantidad_atributos(x=324, z=23, u=5213, y=45213))
+
+
+# Crea una función llamada lista_atributos que devuelva en forma de lista los valores de los atributos entregados en forma
+# de palabras clave (keywords). La función debe preveer recibir cualquier cantidad de argumentos de este tipo.
+def lista_atributos(**kwargs):
+    lista = []
+    for valor in kwargs.values():
+        lista.append(valor)
+    print(lista)
+    return lista
+
+lista_atributos(nombre='Stefan', apellido='Vlad', nac='01/01/2000')
+
+# Crea una función llamada describir_persona, que tome como parámetros su nombre y luego una cantidad
+# indetermida de argumentos. Esta función deberá mostrar en pantalla
+
+def describir_persona(nombre, **kwargs):
+    print(f"Características de {nombre}:")
+
+    for clave, valor in kwargs.items():
+        print(f"{clave}: {valor}")
+
+
+# Crea una función llamada devolver_distintos() que reciba 3
+# integers como parámetros.
+# Si la suma de los 3 numeros es mayor a 15, va a devolver el
+# número mayor.
+# Si la suma de los 3 numeros es menor a 10, va a devolver el
+# número menor.
+# Si la suma de los 3 números es un valor entre 10 y 15
+# (incluidos) va a devolver el número de valor intermedio.
+
+def devolver_distintos(num1,num2,num3):
+    total = num1+num2+num3
+    numeros = num1,num2,num3
+
+    for n in numeros:
+        if total > 15:
+            print(max(numeros))
+        elif total < 10:
+            print(min(numeros))
+        else:
+            print(f"hola")
+
+devolver_distintos(1,3,1)
+
+
+desordenado.sort() # .sort ordena alfabeticamente o numericamente los valores

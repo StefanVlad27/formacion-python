@@ -109,7 +109,7 @@ print(frase.upper())
 # EJERCICIO 2:Une la siguiente lista en un string, separando cada elemento con un espacio.
 # Utiliza el método apropiado de listas/strings, y muestra en pantalla el resultado.
 lista_palabras = ["La","legibilidad","cuenta."]
-unir=" ".join(["La","legibilidad","cuenta."])
+unir=" ".join(lista_palabras)
 print(unir)
 
 # EJERCICIO 3: Reemplaza en la siguiente frase:  "Si la implementación es difícil de explicar, puede que sea una mala idea."

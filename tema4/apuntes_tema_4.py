@@ -309,7 +309,7 @@ while respuesta == 's':
 
 print("Hola")
 
-# MÉTODO BREAK: Interrumpe la interacción actual del loop y sale de él
+# MÉTODO break: Interrumpe la interacción actual del loop y sale de él
 
 # muestra todas las letras hasta que llega a la R, ahi se interrumpe
 nombre = "marcos"
@@ -629,11 +629,11 @@ pelicula = {'titulo':'matrix',
             'ficha_tecnica':
                 {'protagonista':'Stefan Vlad', 'director': 'nacho'}}
 
-elementos = [cliente, película, 'libros']
+elementos = [cliente, pelicula, 'libros']
 
 for e in elementos:
     match e:
         case {'nombre': nombre,
               'edad': edad,
               'puesto': puesto}:
-            print("Cliente")
+            print(cliente)
