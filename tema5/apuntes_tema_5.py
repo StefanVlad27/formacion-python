@@ -501,19 +501,95 @@ def describir_persona(nombre, **kwargs):
 # Si la suma de los 3 números es un valor entre 10 y 15
 # (incluidos) va a devolver el número de valor intermedio.
 
-def devolver_distintos(num1,num2,num3):
-    total = num1+num2+num3
-    numeros = num1,num2,num3
+def devolver_distintos(a,b,c):
 
-    for n in numeros:
-        if total > 15:
-            print(max(numeros))
-        elif total < 10:
-            print(min(numeros))
+    suma = a+b+c
+    lista = [a,b,c]
+
+    if suma > 15:
+        return max(lista)
+    elif suma < 10:
+        return min(lista)
+    else:
+        lista.sort()
+        return lista[1]
+
+devolver_distintos(1,3,6)
+
+# Escribe una función (puedes ponerle cualquier nombre que
+# quieras) que reciba cualquier palabra como parámetro, y que
+# devuelva todas sus letras únicas (sin repetir) pero en orden
+# alfabético.
+# Por ejemplo si al invocar esta función pasamos la palabra
+# "entretenido", debería devolver ['d', 'e', 'i', 'n', 'o', 'r', 't']
+
+def letras_unicas(palabra):
+
+    mi_set = set()
+
+    for letra in palabra:
+        mi_set.add(letra)
+
+    mi_lista = list(mi_set)
+    mi_lista.sort()
+
+    return mi_lista
+
+print(letras_unicas("imaginacion"))
+
+
+# Escribe una función que requiera una cantidad indefinida de
+# argumentos. Lo que hará esta función es devolver True si en
+# algún momento se ha ingresado al numero cero repetido dos
+# veces consecutivas.
+
+def ceros_vecinos(*args):
+
+    contador = 0
+
+    for num in args:
+
+        if contador + 1 == len(args):
+            return False
+        elif args[contador] == 0 and  args[contador + 1] == 0:
+            return True
         else:
-            print(f"hola")
+            contador += 1
 
-devolver_distintos(1,3,1)
+    return False
+
+print(ceros_vecinos(3,5,0,0,3,54))
+
+# Escribe una función llamada contar_primos() que requiera un
+# solo argumento numérico.
+# Esta función va a mostrar en pantalla
+# todos los números
+# primos existentes en el rango que va desde cero hasta ese
+# número incluido, y va a devolver la cantidad de números
+# primos que encontró.
+# Aclaración, por convención el 0 y el 1 no se consideran primos.
+
+def contar_primos(numero):
+
+     primos = [2]
+     iteracion = 3
+
+     if numero < 2:
+         return 0
+
+     while iteracion <= numero:
+
+         for n in range(3,iteracion,2):
+
+             if iteracion % n == 0:
+                 iteracion += 2
+                 break
+         else:
+             primos.append(iteracion)
+             iteracion += 2
+     print(primos)
+     return len(primos)
+
+print(contar_primos(1))
 
 
-desordenado.sort() # .sort ordena alfabeticamente o numericamente los valores
