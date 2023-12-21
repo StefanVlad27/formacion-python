@@ -245,9 +245,92 @@ else:
 # para transformar a una ruta de windows
 
 from pathlib import Path, PureWindowsPath
-
 carpeta = Path("C:/Users/stefanvlad/source/repos/formacion-python/tema6/prueba1.txt")
-
 ruta_windows = PureWindowsPath(carpeta)
-
 print(ruta_windows)
+
+
+# crear rutas a partir de palabras
+from pathlib import Path
+
+base = Path.home() # devuelve la ruta absoluta del directorio principal del usuario actual
+guia = Path("Barcelona", "Sagrada_familia")
+
+print(base) # C:\Users\stefanvlad
+print(guia) # Barcelona\Sagrada familia
+
+guia = Path(base, "Barcelona", "Sagrada_familia.txt")
+guia2 = guia.with_name("La_predera.txt") # cambia el fichero
+print(guia) # C:\Users\stefanvlad\Barcelona\Sagrada_familia.txt
+print(guia2) # C:\Users\stefanvlad\Barcelona\La_predera.txt
+
+print(guia.parent) # C:\Users\stefanvlad\Barcelona . devuelve el directorio padre del fichero.
+print(guia.parent.parent) # C:\Users\stefanvlad
+
+
+
+# EJERCICIOS
+# Almacena en la variable ruta_base, un objeto Path que señale el directorio base del usuario.
+# Recuerda importar Path del módulo pathlib, y utilizar el método home()
+from pathlib import Path
+
+ruta_base = Path.home()
+
+# Implementa y crea una ruta relativa que nos permita llegar al archivo "practicas_path.py" a partir de la siguiente estructura de carpetas:
+# Almacena el directorio obtenido en la variable ruta. No olvides importar Path.
+from pathlib import Path
+
+guia = Path("Curso Python","Día 6","practicas_path.py")
+ruta = guia.relative_to(Path())
+
+print(ruta)
+
+# Implementa y crea una ruta absoluta que nos permita llegar al archivo "practicas_path.py" a partir de la siguiente estructura de carpetas:
+# Almacena el directorio obtenido en la variable ruta. No olvides importar Path, y de concatenar el objeto Path que refiere a la carpeta base del usuario.
+from pathlib import Path
+
+ruta = Path (Path.home(),"Curso Python","Día 6","practicas_path.py")
+
+
+# limpiar la consola
+from os import system
+
+nombre = input('Dime tu nombre: ')
+edad = input('Dime tu edad: ')
+
+system('cls') # system sirve para ejecutar comandos cual cmd se tratase
+
+print(f"Tu nombre es {nombre} y tienes {edad} años.")
+
+
+# archivos y funciones
+# EJERCICIOS
+# Crea una función llamada abrir_leer() que abra (open) un archivo indicado como parámetro, y devuelva su contenido (read).
+from pathlib import Path
+
+def abrir_leer(fichero):
+    read = open.read_text()
+    return read
+
+
+open = Path('ejemplo.txt')
+abrir_leer(open)
+
+
+# Crea una función llamada sobrescribir() que abra (open) un archivo indicado como parámetro, y sobrescriba cualquier
+# contenido anterior por el texto "contenido eliminado"
+def sobrescribir(fichero):
+    archivo = open(fichero, 'w')
+    archivo.write("contenido eliminado")
+
+sobrescribir('prueba.txt')
+
+# Crea una función llamada registro_error() que abra (open) un archivo indicado como parámetro, y lo actualice añadiendo una
+# línea al final que indique "se ha registrado un error de ejecución". Finalmente, debe cerrar el archivo abierto.
+
+def registro_error(fichero):
+    archivo = open(fichero, 'a')
+    archivo.write("se ha registrado un error de ejecución")
+    archivo.close()
+
+registro_error('prueba.txt')
