@@ -80,59 +80,109 @@ def elegir_recetas(lista):
 
     return lista[int(eleccion_receta) -1]
 
-menu = 0
+def leer_receta(receta):
+    print(Path.read_text(receta))
 
-if menu == 1:
-    mis_categorias = mostrar_categorias(mi_ruta)
+def crear_receta(ruta):
+    existe = False
 
-    mi_categoria = elegir_categoria(mis_categorias)
+    while not existe:
+        print("Escribe el nombre de la receta: ")
+        nombre_receta = input() + '.txt'
+        print("Escribe tu nueva receta: ")
+        contenido_receta = input()
+        ruta_nueva = Path(ruta, nombre_receta)
 
-    mis_recetas = mostrar_recetas(mi_categoria)
+        if not os.path.exists(ruta_nueva):
+            Path.write_text(ruta_nueva, contenido_receta)
+            print(f"Tu receta {nombre_receta} ha sido creada.")
+            existe = True
+        else:
+            print("Esa receta ya existe.")
 
-    mi_receta = elegir_recetas(mis_recetas)
+def crear_categoria(ruta):
+    existe = False
 
-    # leer receta
+    while not existe:
+        print("Escribe el nombre de la nueva categoria: ")
+        nombre_categoria = input()
+        ruta_nueva = Path(ruta, nombre_categoria)
 
-    # volver inicio
-    pass
+        if not os.path.exists(ruta_nueva):
+            Path.mkdir(ruta_nueva)
+            print(f"Tu nueva categoria {nombre_categoria} ha sido creada.")
+            existe = True
+        else:
+            print("Esa categoria ya existe.")
 
-elif menu == 2:
-    mostrar_categorias = mostrar_categorias(mi_ruta)
+def eliminar_receta(receta):
+    Path(receta).unlink()
+    print(f"La receta {receta.name} ha sido eliminada.")
 
-    mi_categoria = elegir_categoria(mis_categorias)
+def eliminar_categoria(categoria):
+    Path(categoria).rmdir()
+    print(f"La categoria {categoria.name} ha sido eliminada.")
 
-    # crear receta nueva
+def volver_inicio():
+    eleccion_regresar = "x"
 
-    # volver inicio
-    pass
+    while eleccion_regresar.lower() != "v":
+        eleccion_regresar = input("\n Pulsa la letra 'V' para volver al menu.")
 
-elif menu == 3:
-    # crear categoria
+finalizar_programa = False
 
-    # volver inicio
-    pass
+while not finalizar_programa:
+    menu = inicio()
 
-elif menu == 4:
-    mostrar_categorias = mostrar_categorias(mi_ruta)
+    if menu == 1:
+        mis_categorias = mostrar_categorias(mi_ruta)
 
-    mi_categoria = elegir_categoria(mis_categorias)
+        mi_categoria = elegir_categoria(mis_categorias)
 
-    mis_recetas = mostrar_recetas(mi_categoria)
+        mis_recetas = mostrar_recetas(mi_categoria)
 
-    mi_receta = elegir_recetas(mis_recetas)
+        mi_receta = elegir_recetas(mis_recetas)
 
-    # eliminar receta
+        leer_receta(mi_receta)
 
-    # volver inicio
-    pass
+        volver_inicio()
 
-elif menu == 5:
-    mostrar_categorias = mostrar_categorias(mi_ruta)
 
-    mi_categoria = elegir_categoria(mis_categorias)
+    elif menu == 2:
+        mostrar_categorias = mostrar_categorias(mi_ruta)
 
-    # eliminar categoria
-    pass
-elif menu == 6:
-    # finalizar programa
-    pass
+        mi_categoria = elegir_categoria(mis_categorias)
+
+        crear_receta(mi_categoria)
+
+        volver_inicio()
+
+    elif menu == 3:
+        crear_categoria(mi_ruta)
+
+        volver_inicio()
+
+    elif menu == 4:
+        mostrar_categorias = mostrar_categorias(mi_ruta)
+
+        mi_categoria = elegir_categoria(mis_categorias)
+
+        mis_recetas = mostrar_recetas(mi_categoria)
+
+        mi_receta = elegir_recetas(mis_recetas)
+
+        eliminar_receta(mi_receta)
+
+        volver_inicio()
+
+    elif menu == 5:
+        mostrar_categorias = mostrar_categorias(mi_ruta)
+
+        mi_categoria = elegir_categoria(mis_categorias)
+
+        eliminar_categoria(mi_categoria)
+
+        volver_inicio()
+
+    elif menu == 6:
+        finalizar_programa = True
