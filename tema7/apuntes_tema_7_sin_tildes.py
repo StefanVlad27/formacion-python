@@ -499,8 +499,251 @@ class Hijo(Padre, Madre):
 class Nieto(Hijo):
     pass
 
-
 mi_nieto = Nieto()
 mi_nieto.hablar()
 mi_nieto.reir()
 
+
+# ejercicios
+
+# Si la clase Hija ha heredado de su padre la forma de reir, y de su madre la vocación, y hoy tienen el mismo trabajo en
+# la Fiscalía, crea la herencia múltiple que le permita a esta clase heredar correctamente de Padre y Madre.
+class Padre():
+    def trabajar(self):
+        print("Trabajando en el Hospital")
+
+    def reir(self):
+        print("Ja ja ja!")
+
+class Madre():
+    def trabajar(self):
+        print("Trabajando en la Fiscalía")
+
+class Hija(Madre, Padre):
+    pass
+
+
+
+# Crea una clase Ornitorrinco que herede de otras clases: Vertebrado, Pez, Reptil, Ave y Mamifero, tal que "construyas" un
+# animal que tiene los siguientes métodos y atributos:
+#
+# - poner_huevos()
+# - tiene_pico = True
+# - vertebrado = True
+# - venenoso = True
+# - nadar()
+# - caminar()
+# - amamantar()
+class Vertebrado:
+    vertebrado = True
+
+class Ave(Vertebrado):
+    tiene_pico = True
+    def poner_huevos(self):
+        print("Poniendo huevos")
+
+class Reptil(Vertebrado):
+    venenoso = True
+
+class Pez(Vertebrado):
+    def nadar(self):
+        print("Nadando")
+    def poner_huevos(self):
+        print("Poniendo huevos")
+
+class Mamifero(Vertebrado):
+    def caminar(self):
+        print("Caminando")
+    def amamantar(self):
+        print("Amamantando crías")
+
+class Ornitorrinco(Ave, Reptil, Pez, Mamifero):
+    pass
+
+
+# Un hijo ha heredado de su padre todas sus características, sin embargo, tienen diferentes hobbies. Logra que la clase Hijo herede
+# de Padre todos sus métodos y atributos, sobreescribiendo el método hobby() para que se devuelva[1]: "Juego videojuegos en mi tiempo libre"
+class Padre():
+    color_ojos = "marrón"
+    tipo_pelo = "rulos"
+    altura = "media"
+    voz = "grave"
+    deporte_preferido = "tenis"
+
+    def reir(self):
+        return "Jajaja"
+
+    def hobby(self):
+        return "Pinto madera en mi tiempo libre"
+
+    def caminar(self):
+        return "Caminando con pasos largos y rápidos"
+
+class Hijo(Padre):
+    def hobby(self):
+        return "Juego videojuegos en mi tiempo libre"
+
+
+
+# polimorfismo: objetos de clases distintas pueden tener métodos con el mismo nombre pero implementaciones diferentes
+class Vaca:
+
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+    def hablar(self):
+        print("Soy la vaca " + self.nombre + "\nmuuu")
+
+class Oveja:
+
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+    def hablar(self):
+        print("Soy la oveja " + self.nombre + "\nbeeee")
+
+vaca1 = Vaca('Lola')
+oveja1 = Oveja('Paca')
+vaca1.hablar()
+oveja1.hablar()
+
+def animal_habla(animal):
+    animal.hablar()
+
+
+animal_habla(vaca1)
+
+
+# ejercicios:
+
+# La función incorporada en Python len() tiene un comportamiento polimórfico, ya que calcula el largo de un objeto en función
+# de su tipo (strings, listas, tuples, entre otros), devolviendo la cantidad de items o caracteres que lo componen.
+# Crea un iterador que recorra los siguientes objetos: palabra, lista, tupla y muestre en pantalla (print()) para cada uno de
+# ellos su longitud con la función len().
+
+palabra = "polimorfismo"
+lista = ["Clases", "POO", "Polimorfismo"]
+tupla = (1, 2, 3, 80)
+
+nuevo = [palabra,lista,tupla]
+
+for n in nuevo:
+    print(len(n))
+
+
+# Cuentas con tres clases de personajes en un juego, los cuales cuentan con sus métodos de ataque específicos.
+# Crea un iterador que logre un ataque conjugado en el siguiente orden: Arquero, Mago, Samurai, llamando al método atacar()
+# de cada uno de los personajes. Deberás crear instancias de cada una de las clases anteriores para construir un iterable
+# (una lista llamada personajes) que pueda recorrese en dicho orden.
+
+class Mago():
+    def atacar(self, ):
+        print("Ataque mágico")
+
+class Arquero():
+    def atacar(self):
+        print("Lanzamiento de flecha")
+
+class Samurai():
+    def atacar(self):
+        print("Ataque con katana")
+
+mago = Mago()
+arquero = Arquero()
+samurai = Samurai()
+
+personajes = [arquero, mago, samurai]
+
+for personaje in personajes:
+    personaje.atacar()
+
+
+# Tienes tres clases de personajes en un juego, los cuales cuentan con sus métodos de defensa específicos.
+# Crea una función llamada personaje_defender(), que pueda recibir un objeto (una instancia de las clases de tus personajes),
+# y ejecutar su método defender() independientemente de qué tipo de personaje se trate.
+
+class Mago():
+    def defender(self):
+        print("Escudo mágico")
+
+class Arquero():
+    def defender(self):
+        print("Esconderse")
+
+class Samurai():
+    def defender(self):
+        print("Bloqueo")
+
+mago = Mago()
+arquero = Arquero()
+samurai = Samurai()
+
+personajes = [arquero, mago, samurai]
+
+def personaje_defender(personajes):
+    personajes.defender()
+
+
+
+
+# metodos especiales: sirve para definir metodos predeterminados en base a las clases que se creen y las llamadas a sus instancias
+class CD:
+
+    def __init__(self, autor, titulo, canciones):
+        self.autor = autor
+        self.titulo = titulo
+        self.canciones = canciones
+
+    def __str__(self): # de esta manera indicamos la respuesta a un print de la clase.
+        return f"CD: {self.titulo} Autor: {self.autor}"
+
+    def __len__(self): # aqui le indicamos que es lo que tiene que hacer cuando en una llamada posterior se llame al metodo len
+        return self.canciones
+
+    def __del__(self):
+        print("Se ha eliminado el objeto")
+
+mi_cd = CD("Nirvana", "Nevermind", 12)
+
+print(mi_cd) # de esta manera, va a aparecer lo que hemos definido en el metodo __str__
+print(len(mi_cd)) # de esta manera, va a aparecer lo que hemos definido en el metodo __len__
+
+del mi_cd # de esta manera, eliminamos la instancia de la clase CD
+
+
+# Dada la clase Libro, implementa el método especial __str__ para que cada vez que se imprima el objeto, devuelva '"{titulo}", de {autor}'
+# (atención: el título debe estar encerrado entre comillas dobles).
+class Libro():
+    def __init__(self, titulo, autor, cantidad_paginas):
+        self.titulo = titulo
+        self.autor = autor
+        self.cantidad_paginas = cantidad_paginas
+
+    def __str__(self):
+        return f'"{self.titulo}", de {self.autor}'
+
+
+# Dada la clase Libro, implementa el método especial __len__ para que cada vez que se ejecute la función len() sobre el mismo,
+# devuelva el número de páginas como número entero.
+
+class Libro():
+    def __init__(self, titulo, autor, cantidad_paginas):
+        self.titulo = titulo
+        self.autor = autor
+        self.cantidad_paginas = cantidad_paginas
+
+    def __len__(self):
+        return int(self.cantidad_paginas)
+
+
+# Dada la clase Libro, implementa el método especial __del__ para que el usuario sea informado con el mensaje "Libro eliminado",
+# mostrándolo en pantalla cada vez que el libro se elimine.
+class Libro():
+    def __init__(self, titulo, autor, cantidad_paginas):
+        self.titulo = titulo
+        self.autor = autor
+        self.cantidad_paginas = cantidad_paginas
+
+    def __del__(self):
+        print("Libro eliminado")
+        
