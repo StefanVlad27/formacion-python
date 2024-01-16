@@ -531,23 +531,11 @@ zip_abierto.extractall("tema9/archivos")
 
 
 
-# comprimir con shutil
+# shutil: nos permite comprimir y descomprimir archivos y directorios
 import shutil
 
 carpeta_origen = "tema9/"
 
-archivo_destino = "tema9/todo_comprimido"
+archivo_destino = "todo_comprimido"
 
 shutil.make_archive(archivo_destino, "zip", carpeta_origen) # comprime todo el contenido de la carpeta_origen en un archivo zip
-
-
-# descomprimir con shutil
-import shutil
-
-archivo_a_descomprimir = "tema9/todo_comprimido.zip"
-
-carpeta_destino = "tema9/extraccion"
-
-shutil.unpack_archive(archivo_a_descomprimir, carpeta_destino) # descomprime el archivo en la carpeta_destino
-
-

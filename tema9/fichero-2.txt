@@ -1,0 +1,47 @@
+Ejecución:  03/08/2021, 09:51:32 
+---Variable objetivo:  magro
+
+--- MODELO: svr (DEFAULT) --- 
+
+Train RMSE =  0.01467
+Train R2 score =  -1.29488
+
+Cross-validation
+CV RMSE Mean: 0.01470
+CV RMSE Stdev: 0.00043
+CV R2  Mean: -1.34510
+CV R2  Stdev: 0.28921
+
+--- Fine Tuning --- 
+Grid Search
+0.01471 {'C': 0.001, 'kernel': 'linear'}
+0.01471 {'C': 0.01, 'kernel': 'linear'}
+0.01471 {'C': 0.1, 'kernel': 'linear'}
+0.01471 {'C': 1.0, 'kernel': 'linear'}
+0.01471 {'C': 1.0, 'gamma': 0.01, 'kernel': 'rbf'}
+0.01471 {'C': 1.0, 'gamma': 0.1, 'kernel': 'rbf'}
+0.01471 {'C': 1.0, 'gamma': 1.0, 'kernel': 'rbf'}
+0.01471 {'C': 1.0, 'gamma': 10.0, 'kernel': 'rbf'}
+0.01471 {'C': 10.0, 'gamma': 0.01, 'kernel': 'rbf'}
+0.01471 {'C': 10.0, 'gamma': 0.1, 'kernel': 'rbf'}
+0.01471 {'C': 10.0, 'gamma': 1.0, 'kernel': 'rbf'}
+0.01471 {'C': 10.0, 'gamma': 10.0, 'kernel': 'rbf'}
+
+ -- Best estimator: {'C': 0.001, 'kernel': 'linear'}
+Finer tune RMSE =  0.01467
+Finer tune  R2 score =  -1.29488
+
+Cross-validation
+CV RMSE Mean: 0.01470
+CV RMSE Stdev: 0.00043
+CV R2  Mean: -1.34510
+CV R2  Stdev: 0.28921
+
+--- TEST SET ---
+
+RMSE =  0.014504
+MAE =  0.012788   ; STDEV =  0.0068577
+R2 =  -1.5056
+EVALUAR SVR!
+
+Tiempo transcurrido = 1.11  s.
