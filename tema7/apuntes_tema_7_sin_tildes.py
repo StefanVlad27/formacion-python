@@ -13,19 +13,20 @@ class Pajaro:
         self.color = color  # Atributo: color
         self.especie = especie  # Atributo: especie
 
-    # Método 1
-    def piar(self):
-        print("pio, mi color es {}".format(self.color))
-
-    # Método 2
+    # Método
     def volar(self, metros):
         print(f"El pajaro ha volado {metros} metros.")
+
+    # Método + atributo
+    def piar(self, voz):
+        print("pio "+ voz + " mi color es {}".format(self.color))
+
 
 # instancia
 piolin = Pajaro('negro', 'Tucan')
 
 # Llamada al método piar en la instancia piolin
-piolin.piar() # pio, mi color es negro
+piolin.piar("aguda") # pio, mi color es negro
 
 # Llamada al método volar en la instancia piolin
 piolin.volar(50) # El pajaro ha volado 50 metros.
@@ -39,8 +40,8 @@ piolin.volar(50) # El pajaro ha volado 50 metros.
 class Pajaro:
     pass
 
-mi_pajaro = Pajaro() # asi se define un objeto. en este caso se ha definido el objeto mi_pajaro a raiz de la clase
-otro_pajaro = Pajaro() # otro objeto
+mi_pajaro = Pajaro() # asi se define una instancia. en este caso se ha definido la instancia mi_pajaro a raiz de la clase
+otro_pajaro = Pajaro() # otra instancia
 
 
 # EJERCICIOS
