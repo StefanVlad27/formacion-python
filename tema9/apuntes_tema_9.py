@@ -134,7 +134,7 @@ os.mkdir("tema9/archivos")
 # crear directorios y subdirectorios
 os.makedirs("tema9/archivos/subarchivos")
 
-
+os.read()
 
 # os.walk - explorar y mostrar la estructura de directorios de una carpeta específica en Python
 for carpeta, subcarpeta, archivo in os.walk("tema9"):
@@ -365,7 +365,7 @@ resultado = math.factorial(7)
 
 # caracteres cuantificadores:
 # + -> 1 o mas veces -> \d+ -> 123
-# {n} -> exactamente n veces -> \d{3} -> 123
+# {n} -> exactamente n veces -> \d{3} -> 123 -> N\d{3}-\d{5}
 # {n,m} -> de n a m veces -> \d{2,4} -> 1234
 # {n,} -> n o mas veces -> \d{2,} -> 1234567890
 # * -> 0 o mas veces -> \d* -> 1234567890
