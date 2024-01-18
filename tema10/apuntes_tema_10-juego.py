@@ -95,6 +95,7 @@ bala_x_cambio = 0
 bala_y_cambio = 3
 bala_visible = False
 
+
 # puntuacion
 puntuacion = 0
 fuente = pygame.font.Font("freesansbold.ttf", 32)
