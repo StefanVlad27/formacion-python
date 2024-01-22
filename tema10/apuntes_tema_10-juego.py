@@ -447,3 +447,4 @@ while se_ejecuta:
 
     # actualizar pantalla
     pygame.display.update()
+
